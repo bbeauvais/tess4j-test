@@ -7,11 +7,11 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import com.bbeauv.tesseractdemo.configuration.bean.MVCConfigurationValues;
 
 @Configuration
-public class MVCConfiugration {
+public class MVCConfiguration {
 
 	private final MVCConfigurationValues values;
 
-	public MVCConfiugration(MVCConfigurationValues values) {
+	public MVCConfiguration(MVCConfigurationValues values) {
 		super();
 		this.values = values;
 	}

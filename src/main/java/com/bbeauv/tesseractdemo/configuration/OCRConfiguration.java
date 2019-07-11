@@ -1,25 +1,32 @@
 package com.bbeauv.tesseractdemo.configuration;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.bbeauv.tesseractdemo.configuration.bean.TesseractConfigurationValues;
+import com.bbeauv.tesseractdemo.configuration.bean.OCRConfigurationValues;
+import com.bbeauv.tesseractdemo.configuration.bean.OCRMode;
 import com.bbeauv.tesseractdemo.service.impl.ocr.OCRAnalyzer;
-import com.bbeauv.tesseractdemo.service.impl.ocr.TesseractOCRAnalyzer;
 
 @Configuration
+@ConfigurationProperties(prefix = "ocr")
 public class OCRConfiguration {
 
-	private final TesseractConfigurationValues tesseractConfigurationValues;
+	private final OCRConfigurationValues configurationValues;
+	private OCRMode mode;
 
-	public OCRConfiguration(TesseractConfigurationValues tesseractConfigurationValues) {
+	public OCRConfiguration(OCRConfigurationValues tesseractConfigurationValues) {
 		super();
-		this.tesseractConfigurationValues = tesseractConfigurationValues;
+		this.configurationValues = tesseractConfigurationValues;
 	}
 
 	@Bean
 	public OCRAnalyzer ocrAnalyzer() {
-		return new TesseractOCRAnalyzer(tesseractConfigurationValues.getDataPath());
+		return mode.getAnalyser(configurationValues);
 	}
-	
+
+	public void setMode(OCRMode mode) {
+		this.mode = mode;
+	}
+
 }
