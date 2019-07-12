@@ -1,6 +1,6 @@
 server.port=8080 # Port d'écoute HTTP
+server.servlet.context-path=/ # Path de l'application
 web.maxUploadSize=2500000 # Taille maximum des fichiers pour upload
 
-ocr.mode=tesseract # Le type d'OCR à utiliser
 ocr.tesseract.dataPath=C:\\workspace\\tessdata # Répertoire dans lequel rechercher les fichiers .trainedata
 ocr.tesseract.language=eng # Langue à interpréter par Tesseract
