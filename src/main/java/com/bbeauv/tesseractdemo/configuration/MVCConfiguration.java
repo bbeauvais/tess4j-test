@@ -19,7 +19,8 @@ public class MVCConfiguration {
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-		multipartResolver.setMaxUploadSize(values.getMaxUploadSize());
+		int maxUploadSize = values.getMaxUploadSize() == 0 ? 10000000 : values.getMaxUploadSize();
+		multipartResolver.setMaxUploadSize(maxUploadSize);
 		return multipartResolver;
 	}
 

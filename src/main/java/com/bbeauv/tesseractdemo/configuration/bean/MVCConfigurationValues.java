@@ -7,13 +7,13 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "web")
 public class MVCConfigurationValues {
 
-	private Integer maxUploadSize;
+	private int maxUploadSize;
 
-	public Integer getMaxUploadSize() {
+	public int getMaxUploadSize() {
 		return maxUploadSize;
 	}
 
-	public void setMaxUploadSize(Integer maxUploadSize) {
+	public void setMaxUploadSize(int maxUploadSize) {
 		this.maxUploadSize = maxUploadSize;
 	}
 
