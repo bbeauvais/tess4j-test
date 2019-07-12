@@ -14,7 +14,7 @@ import com.bbeauv.tesseractdemo.service.dao.FileDao;
 import com.bbeauv.tesseractdemo.service.entity.AnalyzedFile;
 
 @Repository
-public class FileDaoImpl implements FileDao {
+public class MemoryFileDaoImpl implements FileDao {
 
 	private static final AtomicInteger ID_GENERATOR = new AtomicInteger(1);
 	private static final Map<Integer, AnalyzedFile> TMP_MEMORY_DATABASE = new ConcurrentHashMap<>();
